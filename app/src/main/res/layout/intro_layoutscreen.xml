@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:backgroundTint="@color/appbackgroundcolour"
+    android:background="#ffffff">
+    
+    <ImageView
+        android:id="@+id/intro_img"
+        android:layout_width="match_parent"
+        android:src="@drawable/vinu1"
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_height="0dp">
+
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:id="@+id/intro_title"
+            android:layout_width="wrap_content"
+            android:text="shayaris Wordl"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/intro_description"
+            android:lineSpacingExtra="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            android:text="TextView"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_below="@+id/intro_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:layout_height="0dp">
+
+            <Button
+                android:id="@+id/btn_star_now"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/custome_button"
+                android:text="          Start Now          "
+                android:textSize="12sp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                style="?android:attr/borderlessButtonStyle"
+                android:textAllCaps="false"
+
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+   
+
+
+
+</LinearLayout>

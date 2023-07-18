@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:backgroundTint="@color/appbackgroundcolour"
+    android:layout_height="match_parent"
+    tools:context=".Activity.IntroActivity"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:id="@+id/layout_skip"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+     <TextView
+         android:id="@+id/btn_skip"
+         android:layout_width="wrap_content"
+         android:text="  Skip  "
+         android:layout_gravity="end"
+         android:textColor="@drawable/tab_textcolor"
+         android:textSize="20dp"
+         android:layout_marginTop="10dp"
+         android:layout_marginRight="15dp"
+         android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/screen_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tab_indicator"
+        android:layout_below="@+id/layout_skip"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="7dp"
+        android:background="@color/appbackgroundcolour" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/normal_custome_button"
+        android:text="Next"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        tools:ignore="RtlHardcoded" />
+
+    <LinearLayout
+        android:id="@+id/tab_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        tools:ignore="RtlHardcoded"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>
