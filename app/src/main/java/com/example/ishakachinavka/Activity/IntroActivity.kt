@@ -43,6 +43,8 @@ class IntroActivity : AppCompatActivity() {
         binding.screenViewpager.adapter=introViewPagerAdapter
         updateIndicator(currentIndex)
 
+
+
         binding.screenViewpager.addOnPageChangeListener(object :OnPageChangeListener{
             override fun onPageScrolled(
                 position: Int,
