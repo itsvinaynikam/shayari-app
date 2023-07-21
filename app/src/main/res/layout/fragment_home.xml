@@ -1,16 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment.HomeFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:textSize="30dp"
-        android:text="HOME FRAGMENT" />
+    android:background="@color/appbackgroundcolour"
+    android:layout_height="match_parent">
 
-</FrameLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/scroll_button"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Love Shayari"
+                android:textStyle="italic"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:textStyle="italic"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Romantic Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:textStyle="italic"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Attitude Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:textStyle="italic"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Broken Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:textStyle="italic"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Sad Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:textStyle="italic"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Bewafa Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:textStyle="italic"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Funny Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:textStyle="italic"
+                android:paddingRight="10dp"
+                android:text="Inspiral Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textStyle="italic"
+                android:background="@drawable/scroll_button"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Maa Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textStyle="italic"
+                android:background="@drawable/scroll_button"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:paddingRight="10dp"
+                android:text="Birthday Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/scroll_button"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:textStyle="italic"
+                android:paddingRight="10dp"
+                android:text="Sorry Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

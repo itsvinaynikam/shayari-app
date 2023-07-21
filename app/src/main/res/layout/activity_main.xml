@@ -14,7 +14,16 @@
       android:layout_height="match_parent"
       android:orientation="vertical"
       android:tag="menu">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="match_parent"
 
+        app:menu="@menu/bottomnavigation_menu"
+        app:headerLayout="@layout/nav_heder"
+
+        android:layout_height="match_parent"/>
+
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -105,6 +114,7 @@
 
 
     </LinearLayout>
+-->
 
 
 
@@ -125,8 +135,8 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottm_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/appbackgroundcolour"
+        android:layout_height="60dp"
+        android:background="#323240"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +161,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="4dp"
-        android:background="@color/appbackgroundcolour"
+        android:background="#323240"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
