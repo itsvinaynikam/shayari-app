@@ -164,6 +164,20 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/scroll_button"
+                android:drawableRight="@drawable/icon_arrow_right_24"
+                android:textStyle="italic"
+                android:paddingRight="10dp"
+                android:text="Sorry Shayari"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
