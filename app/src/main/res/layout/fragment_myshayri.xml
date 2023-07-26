@@ -1,16 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/appbackgroundcolour"
     android:layout_height="match_parent"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.MyshayriFragment">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/lenealayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:textSize="30dp"
-        android:text="SHAYARI FRAGMENT" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+
+        <TextView
+            android:layout_marginTop="40dp"
+            android:layout_width="wrap_content"
+            android:text="It is Ishkachi Nauka Shayari's.."
+            android:textColor="@color/ligtepurple"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:lineSpacingExtra="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="This shayari is a different shayari's that you will find  only in this application.."
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:layout_below="@+id/intro_title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text=" Marathi +  Hindi"
+            android:textColor="@color/ligtepurple"
+            android:textSize="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="300dp"
+            android:src="@drawable/iskachi_navkaa"
+            android:layout_marginTop="10dp"
+            app:shapeAppearanceOverlay="@style/SpecificCornerRounded"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_height="190dp"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/lenealayout"
+        android:background="@drawable/custome_button_myshayarifragment"
+        android:drawableRight="@drawable/icon_arrow_right_24"
+        android:text="     ishakachi navka mode     "
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="italic"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15sp" />
+
+
+
+
+
+</RelativeLayout>

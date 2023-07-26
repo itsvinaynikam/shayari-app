@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:gravity="bottom"
     android:padding="16dp"
+    android:background="@color/appbackgroundcolour"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:src="@drawable/ishakachinavka_image"
-        android:layout_height="200dp"/>
-    
     <TextView
         android:layout_width="wrap_content"
         android:textStyle="bold"
-        android:text="ishakachi Navka"
-        android:textColor="@color/black"
+        android:text="इश्काची नाैका..."
+        android:textColor="@color/white"
         android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/llove_couple5"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        app:shapeAppearanceOverlay="@style/RoundedSquare"
+        android:layout_height="250dp"/>
+
+
+
+
 
 </LinearLayout>

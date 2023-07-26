@@ -35,7 +35,7 @@ class IntroActivity : AppCompatActivity() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(binding.root)
 
-        mList.add(IntroScreenItem("इश्काची नाैका...", "Wel Come To इश्काची नाैका..💞 \n Shayari's wordl..📝",R.drawable.vinu1))
+        mList.add(IntroScreenItem("इश्काची नाैका...", "Wel Come To इश्काची नाैका  Shayari's wordl..💞",R.drawable.vinu1))
         mList.add(IntroScreenItem("Best Quotes.. ", "You Will Find Your Favorite Shayari Here...💖", R.drawable.vinu2))
         mList.add(IntroScreenItem("Shayari's wordl..", "It's Time To Get Lost In The World Of Shayari..😍",R.drawable.vinu))
 
@@ -45,21 +45,23 @@ class IntroActivity : AppCompatActivity() {
 
 
 
+
+
         binding.screenViewpager.addOnPageChangeListener(object :OnPageChangeListener{
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-                Log.e("thissss", "onPageScrolled: ")
+
             }
 
             override fun onPageSelected(position: Int) {
                 currentIndex=position
 
-                if (position==2)
+                if (currentIndex==introViewPagerAdapter.count-1)
                 {
-                    introViewPagerAdapter.binding.btnStarNow.visibility=View.VISIBLE
+                    binding.btnStarNow.visibility=View.VISIBLE
                     val fadeIn: Animation = AlphaAnimation(0f, 1f)
                     fadeIn.duration = 1000
 
@@ -68,63 +70,38 @@ class IntroActivity : AppCompatActivity() {
                         }
 
                         override fun onAnimationEnd(animation: Animation) {
-                            introViewPagerAdapter.binding.btnStarNow.setVisibility(View.VISIBLE)
                         }
 
                         override fun onAnimationRepeat(animation: Animation) {
                         }
                     })
-
-                    introViewPagerAdapter.binding.btnStarNow.startAnimation(fadeIn);
-
-
-                  introViewPagerAdapter.binding.btnStarNow.setOnClickListener {
-                      startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
-                  }
-
-                }else
-                {
-                    introViewPagerAdapter.binding.btnStarNow.visibility=View.GONE
-
+                        binding.btnStarNow.startAnimation(fadeIn);
+                    binding.btnStarNow.setOnClickListener {
+                        startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
+                    }
                 }
 
-                if (currentIndex === mList.size - 1) {
-
-                }else{
+                if (currentIndex!=2)
+                {
+                     binding.btnStarNow.visibility=View.GONE
 
                 }
 
                 updateIndicator(currentIndex)
-
             }
-
             override fun onPageScrollStateChanged(state: Int) {
 
-
-
             }
 
         })
 
-        binding.btnNext.setOnClickListener(View.OnClickListener {
-            currentIndex = binding.screenViewpager.getCurrentItem()
-            if (currentIndex < mList.size) {
-                currentIndex++
-                binding.screenViewpager.setCurrentItem(currentIndex)
-
-            }
-            if (currentIndex === mList.size - 1) {
 
 
-
-            }
-        })
 
 
 
 
         binding.btnSkip.setOnClickListener {
-
             startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
         }
 
@@ -133,9 +110,8 @@ class IntroActivity : AppCompatActivity() {
 
 
     }
-
-
     fun updateIndicator(index: Int) {
+
         binding.tabIndicator.removeAllViews()
         var indicators= arrayOfNulls<ImageView>(3)
 

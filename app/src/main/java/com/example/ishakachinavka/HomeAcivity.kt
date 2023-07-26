@@ -1,5 +1,6 @@
 package com.example.ishakachinavka
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +17,7 @@ import com.example.ishakachinavka.R
 class HomeAcivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -65,7 +67,6 @@ class HomeAcivity : AppCompatActivity() {
     }
 
     private fun initt() {
-
         setSupportActionBar(binding.toolbar)
         val drawerToggle = DuoDrawerToggle(this, binding.drawer, binding.toolbar,com.example.ishakachinavka.R.string.open_nav,com.example.ishakachinavka.R.string.close_nav)
         binding.drawer.setDrawerListener(drawerToggle)
