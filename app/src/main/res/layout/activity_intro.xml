@@ -22,6 +22,7 @@
          android:layout_gravity="end"
          android:textColor="@drawable/tab_textcolor"
          android:textSize="20dp"
+         android:fontFamily="@font/boogaloo"
          android:layout_marginTop="10dp"
          android:layout_marginRight="15dp"
          android:layout_height="wrap_content"/>
@@ -49,6 +50,7 @@
         android:textSize="12sp"
         android:layout_marginBottom="30dp"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/boogaloo"
         style="?android:attr/borderlessButtonStyle"
         android:textAllCaps="false"
         android:textColor="@android:color/white"

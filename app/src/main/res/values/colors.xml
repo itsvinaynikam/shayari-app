@@ -4,6 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="appbackgroundcolour">#1C1C1E</color>
     <color name="ligtepurple">#BC5FEB</color>
+    <color name="darkepurple">#620C71</color>
+
 
 
 </resources>

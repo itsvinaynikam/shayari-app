@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:gravity="bottom"
-    android:padding="16dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
     android:background="@color/appbackgroundcolour"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:layout_height="wrap_content">
@@ -27,8 +28,49 @@
         app:shapeAppearanceOverlay="@style/RoundedSquare"
         android:layout_height="250dp"/>
 
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="horizontal"
+       android:layout_height="wrap_content">
+       <View
+           android:layout_width="match_parent"
+           android:layout_marginTop="15dp"
+           android:layout_marginRight="1dp"
+           android:layout_weight="1"
+           android:background="@drawable/custome_button_myshayarifragment"
+           android:layout_height="1dp"/>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:text="Princess"
+           android:textSize="15dp"
+           android:textColor="@color/ligtepurple"
+           android:fontFamily="@font/amita"
+           android:textStyle="italic"
+           android:layout_height="wrap_content"/>
+
+      <!-- <ImageView
+           android:layout_width="wrap_content"
+           android:src="@drawable/heart_activeindecator"
+           android:layout_height="wrap_content"/>
+       <ImageView
+           android:layout_width="wrap_content"
+           android:src="@drawable/heart_activeindecator"
+           android:layout_height="wrap_content"/>
+       <ImageView
+           android:layout_width="wrap_content"
+           android:src="@drawable/heart_activeindecator"
+           android:layout_height="wrap_content"/>-->
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_marginTop="15dp"
+           android:layout_weight="1"
+           android:layout_marginLeft="3dp"
+           android:background="@drawable/custome_button_myshayarifragment"
+           android:layout_height="1dp"/>
 
 
-
+   </LinearLayout>
 
 </LinearLayout>

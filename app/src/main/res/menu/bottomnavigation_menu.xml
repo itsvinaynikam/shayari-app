@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item android:id="@+id/btn_home" android:title="Home" android:icon="@drawable/icon_home_24" />
     <item android:id="@+id/btn_myshayari" android:title="Shayari" android:icon="@drawable/icon_shayari_24"/>
     <item android:id="@+id/btn_fav" android:title="Favorite" android:icon="@drawable/icon_favorite_" />
