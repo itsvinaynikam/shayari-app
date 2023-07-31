@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="NavigationViewStyle" parent="Widget.Design.NavigationView">
+        <!-- Customize the selected item color -->
+        <item name="itemTextColor">@color/ligtepurple</item>
+
+        <!-- Customize the unselected item color -->
+        <item name="itemIconTint">@color/white</item>
+    </style>
+
+
+
+
+</resources>

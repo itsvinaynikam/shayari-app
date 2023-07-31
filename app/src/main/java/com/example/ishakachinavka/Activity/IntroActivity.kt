@@ -35,17 +35,13 @@ class IntroActivity : AppCompatActivity() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(binding.root)
 
-        mList.add(IntroScreenItem("इश्काची नाैका...", "Wel Come To इश्काची नाैका  Shayari's wordl..💞",R.drawable.vinu1))
-        mList.add(IntroScreenItem("Best Quotes.. ", "You Will Find Your Favorite Shayari Here...💖", R.drawable.vinu2))
-        mList.add(IntroScreenItem("Shayari's wordl..", "It's Time To Get Lost In The World Of Shayari..😍",R.drawable.vinu))
+        mList.add(IntroScreenItem("इश्काची नाैका...", "Wel Come To इश्काची नाैका  Shayari's wordl..💞",R.drawable.intro_image1))
+        mList.add(IntroScreenItem("Best Quotes.. ", "You Will Find Your Favorite Shayari Here...💖", R.drawable.intro_image2))
+        mList.add(IntroScreenItem("Shayari's wordl..", "It's Time To Get Lost In The World Of Shayari..😍",R.drawable.intro_image5))
 
         introViewPagerAdapter= IntroViewPagerAdapter(this,mList)
         binding.screenViewpager.adapter=introViewPagerAdapter
         updateIndicator(currentIndex)
-
-
-
-
 
         binding.screenViewpager.addOnPageChangeListener(object :OnPageChangeListener{
             override fun onPageScrolled(
@@ -96,11 +92,6 @@ class IntroActivity : AppCompatActivity() {
         })
 
 
-
-
-
-
-
         binding.btnSkip.setOnClickListener {
             startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
         }
@@ -111,7 +102,6 @@ class IntroActivity : AppCompatActivity() {
 
     }
     fun updateIndicator(index: Int) {
-
         binding.tabIndicator.removeAllViews()
         var indicators= arrayOfNulls<ImageView>(3)
 
@@ -119,20 +109,17 @@ class IntroActivity : AppCompatActivity() {
         {
             indicators[i]= ImageView(this@IntroActivity)
             if (i==index)
-            {
-                indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heart_activeindecator))
+            { indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heart_activeindecator))
 
             }else
             {
                 indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heartshape_inactiveindecator))
-
             }
             var params=LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
             params.setMargins(20,0,0,0)
             binding.tabIndicator.addView(indicators[i],params)
 
         }
-
 
 
     }

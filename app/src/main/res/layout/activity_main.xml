@@ -21,19 +21,21 @@
       <com.google.android.material.navigation.NavigationView
           android:id="@+id/handler_screen"
           android:layout_width="match_parent"
+          app:menu="@menu/duonavition_backgroundscreen_menu"
+          app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+          app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
           android:background="@color/appbackgroundcolour"
           app:headerLayout="@layout/nav_heder"
-          android:layout_height="wrap_content"/>
+          android:layout_height="match_parent"/>
 
-      <com.google.android.material.navigation.NavigationView
+   <!--   <com.google.android.material.navigation.NavigationView
+          android:id="@+id/drawnavigation_menu"
           android:layout_width="match_parent"
           android:layout_below="@+id/handler_screen"
           android:background="@color/appbackgroundcolour"
-          app:menu="@menu/bottomnavigation_menu"
           app:layout_constraintStart_toStartOf="parent"
-          app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
-          app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
-          android:layout_height="match_parent"/>
+
+          android:layout_height="match_parent"/>-->
     </RelativeLayout>
 
 

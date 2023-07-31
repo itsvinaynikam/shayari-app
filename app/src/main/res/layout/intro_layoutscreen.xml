@@ -11,19 +11,22 @@
     
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/intro_img"
-        android:layout_width="200dp"
-        android:src="@drawable/vinu1"
+        android:layout_width="wrap_content"
+        android:src="@drawable/intro_image1"
+       android:layout_marginRight="@dimen/_10ssp"
+        android:layout_marginLeft="@dimen/_10ssp"
         app:shapeAppearanceOverlay="@style/SpecificCornerRounded"
         android:layout_gravity="center_horizontal"
-        android:layout_height="300dp"/>
+        android:layout_height="@dimen/_200sdp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/_8sdp"
         android:orientation="vertical"
+        android:layout_marginRight="@dimen/_10ssp"
+        android:layout_marginLeft="@dimen/_10ssp"
         android:gravity="center_horizontal"
-        android:layout_height="0dp">
+        android:layout_height="wrap_content">
 
 
         <TextView
@@ -31,19 +34,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/_10ssp"
             android:fontFamily="@font/boogaloo"
             android:text="shayaris Wordl"
             android:textColor="@color/white"
-            android:textSize="25dp" />
+            android:textSize="@dimen/_20ssp" />
 
         <TextView
             android:id="@+id/intro_description"
-            android:lineSpacingExtra="16dp"
+            android:lineSpacingExtra="@dimen/_14ssp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_8ssp"
             android:text="TextView"
             android:fontFamily="@font/amita"
             android:textColor="@color/white"
@@ -53,22 +56,6 @@
 
 
     </LinearLayout>
-
-   <!-- <Button
-        android:id="@+id/btn_star_now"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/custome_button"
-        android:text="          Start Now          "
-        android:textSize="12sp"
-        android:gravity="center_vertical"
-        android:visibility="gone"
-        style="?android:attr/borderlessButtonStyle"
-        android:textAllCaps="false"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/white"
-        tools:ignore="RtlHardcoded" />-->
 
 
 
