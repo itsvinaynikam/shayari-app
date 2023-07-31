@@ -64,8 +64,6 @@ class HomeAcivity : AppCompatActivity() {
        }
 */
 
-
-
         binding.bottmNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.btn_home -> {

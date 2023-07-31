@@ -12,107 +12,105 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="15dp"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10ssp"
+            android:padding="@dimen/_2ssp"
+            android:layout_marginRight="@dimen/_10ssp"
+            android:orientation="vertical">
 
             <Button
+                android:id="@+id/loveshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:fontFamily="@font/boogaloo"
                 android:text="Love Shayari"
                 android:textStyle="italic"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/romaticshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:text="Romantic Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/attitudeshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:text="Attitude Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/brokenshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:text="Broken Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/sadshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:text="Sad Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/befavashayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:text="Bewafa Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/funnyshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:textStyle="italic"
                 android:drawableRight="@drawable/icon_arrow_right_24"
@@ -120,83 +118,67 @@
                 android:fontFamily="@font/boogaloo"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/inspiralshayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
-                android:paddingRight="10dp"
                 android:text="Inspiral Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/maashayari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:textStyle="italic"
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:fontFamily="@font/boogaloo"
                 android:text="Maa Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/birthshari_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:textStyle="italic"
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
-                android:paddingRight="10dp"
                 android:fontFamily="@font/boogaloo"
                 android:text="Birthday Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <Button
+                android:id="@+id/soryyshayri_button"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/scroll_button"
-                android:drawableRight="@drawable/icon_arrow_right_24"
-                android:textStyle="italic"
-                android:paddingRight="10dp"
-                android:fontFamily="@font/boogaloo"
-                android:text="Sorry Shayari"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:textSize="15sp" />
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
-                android:paddingRight="10dp"
                 android:text="Sorry Shayari"
                 android:textAllCaps="false"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_14ssp" />
 
         </LinearLayout>
 

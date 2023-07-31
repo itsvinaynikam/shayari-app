@@ -34,7 +34,6 @@ class IntroActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(binding.root)
-
         mList.add(IntroScreenItem("इश्काची नाैका...", "Wel Come To इश्काची नाैका  Shayari's wordl..💞",R.drawable.intro_image1))
         mList.add(IntroScreenItem("Best Quotes.. ", "You Will Find Your Favorite Shayari Here...💖", R.drawable.intro_image2))
         mList.add(IntroScreenItem("Shayari's wordl..", "It's Time To Get Lost In The World Of Shayari..😍",R.drawable.intro_image5))
@@ -51,7 +50,6 @@ class IntroActivity : AppCompatActivity() {
             ) {
 
             }
-
             override fun onPageSelected(position: Int) {
                 currentIndex=position
 
@@ -82,24 +80,16 @@ class IntroActivity : AppCompatActivity() {
                      binding.btnStarNow.visibility=View.GONE
 
                 }
-
                 updateIndicator(currentIndex)
             }
             override fun onPageScrollStateChanged(state: Int) {
-
             }
 
         })
 
-
         binding.btnSkip.setOnClickListener {
             startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
         }
-
-
-
-
-
     }
     fun updateIndicator(index: Int) {
         binding.tabIndicator.removeAllViews()
@@ -120,8 +110,6 @@ class IntroActivity : AppCompatActivity() {
             binding.tabIndicator.addView(indicators[i],params)
 
         }
-
-
     }
 
 }

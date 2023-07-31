@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_15ssp"
+    android:layout_marginTop="@dimen/_10sdp"
+    app:cardElevation="@dimen/_5sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/_80sdp">
+
+        <TextView
+            android:id="@+id/shayari_textview"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/_20sdp"
+            android:text="vinaynikam"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
