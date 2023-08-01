@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.ishakachinavka.Activity.RomaticshayriActivity
 import com.example.ishakachinavka.Activity.ShowShayariActivity
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.FragmentHomeBinding
@@ -33,7 +34,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.romaticshayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),RomaticshayriActivity::class.java))
         }
 
         binding.attitudeshayariButton.setOnClickListener {
