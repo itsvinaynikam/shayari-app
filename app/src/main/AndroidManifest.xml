@@ -13,6 +13,18 @@
         android:theme="@style/Theme.IshakachiNavka"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.BewafashayariActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SadShayariActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.BrokenShayariActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AttitudeShayriActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.RomaticshayriActivity"
             android:exported="false" />
         <activity

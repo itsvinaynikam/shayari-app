@@ -92,7 +92,7 @@
                 android:textSize="@dimen/_14ssp" />
 
             <Button
-                android:id="@+id/befavashayari_button"
+                android:id="@+id/bewafavashayari_button"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"

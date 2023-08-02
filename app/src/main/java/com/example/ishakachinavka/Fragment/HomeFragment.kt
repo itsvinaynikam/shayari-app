@@ -7,7 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.ishakachinavka.Activity.AttitudeShayriActivity
+import com.example.ishakachinavka.Activity.BewafashayariActivity
+import com.example.ishakachinavka.Activity.BrokenShayariActivity
 import com.example.ishakachinavka.Activity.RomaticshayriActivity
+import com.example.ishakachinavka.Activity.SadShayariActivity
 import com.example.ishakachinavka.Activity.ShowShayariActivity
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.FragmentHomeBinding
@@ -38,21 +42,21 @@ class HomeFragment : Fragment() {
         }
 
         binding.attitudeshayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),AttitudeShayriActivity::class.java))
         }
 
         binding.brokenshayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),BrokenShayariActivity::class.java))
 
         }
 
         binding.sadshayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),SadShayariActivity::class.java))
 
         }
 
-        binding.befavashayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+        binding.bewafavashayariButton.setOnClickListener {
+            startActivity(Intent(requireContext(),BewafashayariActivity::class.java))
         }
 
         binding.funnyshayariButton.setOnClickListener {
