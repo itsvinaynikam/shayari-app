@@ -121,7 +121,7 @@
                 android:textSize="@dimen/_14ssp" />
 
             <Button
-                android:id="@+id/inspiralshayari_button"
+                android:id="@+id/motivational_button"
                 android:layout_width="fill_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginTop="@dimen/_8sdp"
@@ -129,7 +129,7 @@
                 android:drawableRight="@drawable/icon_arrow_right_24"
                 android:textStyle="italic"
                 android:fontFamily="@font/boogaloo"
-                android:text="Inspiral Shayari"
+                android:text="Motivition Shayari"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="@dimen/_14ssp" />

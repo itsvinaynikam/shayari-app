@@ -10,6 +10,8 @@ import android.widget.Toast
 import com.example.ishakachinavka.Activity.AttitudeShayriActivity
 import com.example.ishakachinavka.Activity.BewafashayariActivity
 import com.example.ishakachinavka.Activity.BrokenShayariActivity
+import com.example.ishakachinavka.Activity.FunnyShayariActivity
+import com.example.ishakachinavka.Activity.MotivitionActivity
 import com.example.ishakachinavka.Activity.RomaticshayriActivity
 import com.example.ishakachinavka.Activity.SadShayariActivity
 import com.example.ishakachinavka.Activity.ShowShayariActivity
@@ -34,7 +36,6 @@ class HomeFragment : Fragment() {
 
         binding.loveshayariButton.setOnClickListener {
             startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
-
         }
 
         binding.romaticshayariButton.setOnClickListener {
@@ -60,11 +61,11 @@ class HomeFragment : Fragment() {
         }
 
         binding.funnyshayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),FunnyShayariActivity::class.java))
         }
 
-        binding.inspiralshayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+        binding.motivationalButton.setOnClickListener {
+            startActivity(Intent(requireContext(),MotivitionActivity::class.java))
 
         }
 
@@ -79,7 +80,6 @@ class HomeFragment : Fragment() {
 
         binding.soryyshayriButton.setOnClickListener{
             startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
-
         }
 
         return binding.root
