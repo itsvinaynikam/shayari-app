@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.ishakachinavka.Activity.AttitudeShayriActivity
 import com.example.ishakachinavka.Activity.BewafashayariActivity
+import com.example.ishakachinavka.Activity.BirthdayShayariActivity
 import com.example.ishakachinavka.Activity.BrokenShayariActivity
 import com.example.ishakachinavka.Activity.FunnyShayariActivity
+import com.example.ishakachinavka.Activity.GoodMoringActivity
+import com.example.ishakachinavka.Activity.MomActivity
 import com.example.ishakachinavka.Activity.MotivitionActivity
 import com.example.ishakachinavka.Activity.RomaticshayriActivity
 import com.example.ishakachinavka.Activity.SadShayariActivity
@@ -70,16 +73,16 @@ class HomeFragment : Fragment() {
         }
 
         binding.maashayariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),MomActivity::class.java))
         }
 
         binding.birthshariButton.setOnClickListener {
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+            startActivity(Intent(requireContext(),BirthdayShayariActivity::class.java))
 
         }
 
-        binding.soryyshayriButton.setOnClickListener{
-            startActivity(Intent(requireContext(),ShowShayariActivity::class.java))
+        binding.goodmorningButton.setOnClickListener{
+            startActivity(Intent(requireContext(),GoodMoringActivity::class.java))
         }
 
         return binding.root

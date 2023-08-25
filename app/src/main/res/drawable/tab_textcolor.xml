@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true" android:color="@color/ligtepurple" />
     <item android:state_pressed="true" android:state_enabled="true" android:color="@color/ligtepurple" />
     <item android:color="@color/white" />
 
 
-</selector>
+</selector>-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/ligtepurple">
+    <!-- <item>
+         <shape android:shape="rectangle">
+             <solid android:color="@color/ligtepurple"/>
+             <corners android:radius="32dp"/>
+         </shape>
+     </item>-->
+</ripple>

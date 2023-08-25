@@ -91,5 +91,10 @@ class FunnyShayariActivity : AppCompatActivity() {
         funnyShayariShowAdapter= ShayariDataShowAdpter(this,funnyShayriList)
         binding.funnyshayariShowrecycleview.adapter=funnyShayariShowAdapter
         binding.funnyshayariShowrecycleview.layoutManager= LinearLayoutManager(this)
+
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 }

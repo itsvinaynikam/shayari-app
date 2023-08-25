@@ -83,6 +83,11 @@ class SadShayariActivity : AppCompatActivity() {
         binding.sadshahyariShowrecycleview.adapter=sadShayariShowAdapter
         binding.sadshahyariShowrecycleview.layoutManager= LinearLayoutManager(this)
 
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
+
 
 
     }

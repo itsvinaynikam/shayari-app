@@ -80,5 +80,11 @@ class BewafashayariActivity : AppCompatActivity() {
         binding.bewafashyariShowrecycleview.layoutManager= LinearLayoutManager(this)
 
 
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
+
+
     }
 }

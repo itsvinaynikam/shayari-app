@@ -19,6 +19,7 @@
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
+            android:background="@drawable/back_button_effect"
             android:layout_marginStart="@dimen/_5sdp"
             android:src="@drawable/icon_backspace_24"
             app:layout_constraintBottom_toBottomOf="parent"

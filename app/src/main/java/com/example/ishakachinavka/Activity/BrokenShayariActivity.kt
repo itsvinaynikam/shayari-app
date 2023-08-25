@@ -95,6 +95,11 @@ class BrokenShayariActivity : AppCompatActivity() {
         brokenShayariShowAdapter= ShayariDataShowAdpter(this,brokenShayriList)
         binding.brokenhyariShowrecycleview.adapter=brokenShayariShowAdapter
         binding.brokenhyariShowrecycleview.layoutManager= LinearLayoutManager(this)
+
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
 

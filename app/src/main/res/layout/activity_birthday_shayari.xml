@@ -21,6 +21,7 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_5sdp"
             android:src="@drawable/icon_backspace_24"
+            android:background="@drawable/back_button_effect"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

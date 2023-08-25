@@ -87,6 +87,11 @@ class MotivitionActivity : AppCompatActivity() {
         binding.motivationalShowrecycleview.adapter=motivationalShayariShowAdapter
         binding.motivationalShowrecycleview.layoutManager= LinearLayoutManager(this)
 
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
+
 
 
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.ShowShayariActivity">
+    tools:context=".Activity.GoodMoringActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/category_titlelayout"
         android:layout_width="match_parent"
@@ -20,8 +20,9 @@
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/_5sdp"
-            android:src="@drawable/icon_backspace_24"
             android:background="@drawable/back_button_effect"
+
+            android:src="@drawable/icon_backspace_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Love shayari"
+            android:text="Good Morning"
             android:textColor="@color/white"
             android:textSize="@dimen/_16sdp"
             android:fontFamily="@font/boogaloo"
@@ -43,7 +44,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/shyari_showrecycleview"
+        android:id="@+id/goodmorning_showrecycleview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="@dimen/_8sdp"

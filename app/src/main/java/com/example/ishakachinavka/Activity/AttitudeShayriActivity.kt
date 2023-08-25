@@ -101,10 +101,13 @@ class AttitudeShayriActivity : AppCompatActivity() {
                 "लोग हमें बिगड़ा हुआ नवाब कहते हैं😆🤴")
 
 
-
-
         attitudeShayariShowAdapter= ShayariDataShowAdpter(this,attitudeShayriList)
         binding.attitudeshyariShowrecycleview.adapter=attitudeShayariShowAdapter
         binding.attitudeshyariShowrecycleview.layoutManager= LinearLayoutManager(this)
+
+        binding.backBtn.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 }
