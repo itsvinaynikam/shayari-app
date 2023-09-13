@@ -16,20 +16,16 @@ import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.SharedPreference.SharedPreferencee
 import com.example.ishakachinavka.databinding.ShowshayariDesignlayoutBinding
 
-
-class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableList<Shayari>): RecyclerView.Adapter<ShayariDataShowAdpter.Myviewholder>() {
+class FavShayariAdapter(var context: Context, var favshayariDatalist:MutableList<Favshayari>): RecyclerView.Adapter<FavShayariAdapter.Myviewholder>() {
 
     lateinit var binding: ShowshayariDesignlayoutBinding
 
-     lateinit var favoritesPref: SharedPreferencee
-     val db = Room.databaseBuilder(context ,AppDatabase::class.java, "favoriteshayari").allowMainThreadQueries().build()
+    lateinit var favoritesPref: SharedPreferencee
 
-
+    val db = Room.databaseBuilder(context ,AppDatabase::class.java, "favoriteshayari").allowMainThreadQueries().build()
 
 
     class Myviewholder(var binding: ShowshayariDesignlayoutBinding) : RecyclerView.ViewHolder(binding.root){
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Myviewholder {
@@ -39,19 +35,17 @@ class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableLis
     }
 
     override fun getItemCount(): Int {
-        return shayariDatalist.size
+        return favshayariDatalist.size
     }
 
     override fun onBindViewHolder(holder: Myviewholder, position: Int) {
 
-        var datalisst=shayariDatalist[position]
-        holder.binding.shayariTextview.text=datalisst.text
+        var favlist=favshayariDatalist[position]
+        holder.binding.shayariTextview.text=favlist.text
 
-       // favoritesPref = context.getSharedPreferences("FavoritesPref", Context.MODE_PRIVATE);
         favoritesPref = SharedPreferencee(context)
 
-        // val  isFavorite = favoritesPref.getBoolean(datalisst.id.toString(), false)
-        val  isFavorite = favoritesPref.isStudent(datalisst.id.toString(), false)
+        val  isFavorite = favoritesPref.isStudent(favlist.id.toString(), false)
 
         val favoriteIcon: Int =
             if (isFavorite)
@@ -60,61 +54,35 @@ class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableLis
 
 
 
-
-
-
-
+//  Buttons
         holder.binding.favBtn.setOnClickListener {
-
             val newFavoriteStatus = !isFavorite
-           /* Log.e("cheked", "onBindViewHolder:   3  "+newFavoriteStatus )
-
-            val editor = favoritesPref.edit()
-            editor.putBoolean(datalisst.id.toString(), newFavoriteStatus)
-            editor.apply()
-            */
-            favoritesPref.setStudentFlag(datalisst.id.toString(), newFavoriteStatus)
+            favoritesPref.setStudentFlag(favlist.id.toString(), newFavoriteStatus)
 
             // Update the icon
             holder.binding.favBtn.setImageResource(if (newFavoriteStatus){
-                var favUser= Favshayari(id = shayariDatalist.get(position).id, text = shayariDatalist.get(position).text)
-                db.userDao().insertAll(favUser)
                 com.example.ishakachinavka.R.drawable.fav_heart_icon
 
             }
             else
-            { var deleteFavShayarir= Favshayari(id = shayariDatalist.get(position).id, text = shayariDatalist.get(position).text)
+            { var deleteFavShayarir= Favshayari(id = favshayariDatalist.get(position).id, text = favshayariDatalist.get(position).text)
                 db.userDao().delete(deleteFavShayarir)
+                deleteDataRefesh(db.userDao().gelAllUsers())
                 com.example.ishakachinavka.R.drawable.unfav_heart_icon
+
             })
             notifyDataSetChanged()
 
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
         holder.binding.copyBtn.setOnClickListener {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
-            val clip = ClipData.newPlainText("msg",shayariDatalist.get(position).text)
 
-            Log.e("shayarii", "onBindViewHolder: "+shayariDatalist.get(position).text)
+            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+            val clip = ClipData.newPlainText("msg",favshayariDatalist.get(position).text)
+
+            Log.e("shayarii", "onBindViewHolder: "+favshayariDatalist.get(position).text)
             assert(clipboard != null)
             clipboard!!.setPrimaryClip(clip)
             Toast.makeText(context, "Copied To Clipboard !", Toast.LENGTH_SHORT).show()
-
-
-
 
         }
 
@@ -123,12 +91,12 @@ class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableLis
                 val shareIntent = Intent(Intent.ACTION_SEND)
                 shareIntent.type = "text/plain"
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name")
-                var shareMessage = "\n${shayariDatalist.get(position).text}\n\n"
-               /* shareMessage =
-                    """
-                            ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
-                              
-                          """.trimIndent()*/
+                var shareMessage = "\n${favshayariDatalist.get(position).text}\n\n"
+                /* shareMessage =
+                     """
+                             ${shareMessage}https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}
+
+                           """.trimIndent()*/
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
                 context.startActivity(Intent.createChooser(shareIntent, "choose one"))
             } catch (e: Exception) {
@@ -141,17 +109,23 @@ class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableLis
 
     }
 
-
-
-/*
-
-    fun setitem(datalisst: ArrayList<UserCategory>)
+    private fun deleteDataRefesh(gelAllUsers: MutableList<Favshayari>)
     {
-        this.datalist=datalisst
+        this.favshayariDatalist=gelAllUsers
         notifyDataSetChanged()
+
     }
 
-*/
+
+    /*fun setitem(datalisst: MutableList<Favshayari>)
+    {
+        this.favshayariDatalist=datalisst
+        notifyDataSetChanged()
+    }*/
+
+
 
 
 }
+
+

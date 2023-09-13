@@ -49,6 +49,8 @@
                 android:background="@drawable/copy_share_btn_effect"
                 app:layout_constraintStart_toEndOf="@+id/copy_btn"
                 app:layout_constraintTop_toTopOf="parent"
+                android:clickable="true"
+                android:focusable="true"
                 app:srcCompat="@drawable/icon_favorite_" />
 
             <ImageView

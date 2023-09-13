@@ -1,11 +1,15 @@
 package com.example.ishakachinavka
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import com.example.ishakachinavka.Activity.FavoriteShayariActivity
+import com.example.ishakachinavka.Activity.ShowShayariActivity
 import com.example.ishakachinavka.Fragment.FavshayariFragment
 import com.example.ishakachinavka.Fragment.HomeFragment
 import com.example.ishakachinavka.Fragment.MyshayriFragment
@@ -67,23 +71,26 @@ class HomeAcivity : AppCompatActivity() {
         binding.bottmNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.btn_home -> {
+                    binding.toolbar.visibility=View.VISIBLE
                     loadFragment(HomeFragment())
 
                     return@setOnItemSelectedListener true
                 }
                 R.id.btn_myshayari -> {
+                    binding.toolbar.visibility=View.VISIBLE
                     loadFragment(MyshayriFragment())
-
                     return@setOnItemSelectedListener true
                 }
                 R.id.btn_fav -> {
-                    loadFragment(FavshayariFragment())
 
+                    binding.toolbar.visibility=View.GONE
+                   loadFragment(FavshayariFragment())
+                    //  startActivity(Intent(this, FavoriteShayariActivity::class.java))
                     return@setOnItemSelectedListener  true
                 }
                 R.id.btn_profile -> {
+                    binding.toolbar.visibility=View.VISIBLE
                     loadFragment(ProfileFragment())
-
                     return@setOnItemSelectedListener true
                 }
                 else -> {return@setOnItemSelectedListener false}

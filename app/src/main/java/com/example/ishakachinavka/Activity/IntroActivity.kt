@@ -95,11 +95,16 @@ class IntroActivity : AppCompatActivity() {
         binding.tabIndicator.removeAllViews()
         var indicators= arrayOfNulls<ImageView>(3)
 
+
         for (i in indicators.indices)
         {
+            Log.e("indicators", "updateIndicator: "+i )
+            Log.e("indexxx", "updateIndicator: "+index )
+
             indicators[i]= ImageView(this@IntroActivity)
             if (i==index)
-            { indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heart_activeindecator))
+            {
+                indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heart_activeindecator))
 
             }else
             {

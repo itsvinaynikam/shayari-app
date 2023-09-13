@@ -1,3 +1,4 @@
 package com.example.ishakachinavka.Model
 
-data class Shayari(val text: String)
+
+data class Shayari(var id:Int,val text: String)
