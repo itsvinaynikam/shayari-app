@@ -5,13 +5,11 @@ import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 
 
-
-
 class SharedPreferencee(var context: Context)
 {
 
-    lateinit var favoritesPref: SharedPreferences
-    lateinit var editor: Editor
+     var favoritesPref: SharedPreferences
+     var editor: Editor
 
 
 init {
@@ -20,14 +18,32 @@ init {
 }
 
 
-    fun setStudentFlag(toString: String, newFavoriteStatus: Boolean) {
+    fun setFavShayari(toString: String, newFavoriteStatus: Boolean) {
         editor.putBoolean(toString,newFavoriteStatus)
         editor.apply()
     }
 
-    fun isStudent(toString: String, b: Boolean): Boolean {
+    fun getFavShayari(toString: String, b: Boolean): Boolean
+    {
         return favoritesPref.getBoolean(toString, b)
     }
+
+
+    fun setString(key: String?, value: String?) {
+        favoritesPref.edit().putString(key, value).apply()
+    }
+
+    fun getString(key: String?): String? {
+        return favoritesPref.getString(key, "")
+    }
+
+
+
+
+
+
+
+
 
 
 

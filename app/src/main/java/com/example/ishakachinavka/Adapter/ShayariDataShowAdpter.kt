@@ -51,7 +51,7 @@ class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableLis
         favoritesPref = SharedPreferencee(context)
 
         // val  isFavorite = favoritesPref.getBoolean(datalisst.id.toString(), false)
-        val  isFavorite = favoritesPref.isStudent(datalisst.id.toString(), false)
+        val  isFavorite = favoritesPref.getFavShayari(datalisst.id.toString(), false)
 
         val favoriteIcon: Int =
             if (isFavorite)
@@ -73,7 +73,7 @@ class ShayariDataShowAdpter(var context: Context, var shayariDatalist:MutableLis
             editor.putBoolean(datalisst.id.toString(), newFavoriteStatus)
             editor.apply()
             */
-            favoritesPref.setStudentFlag(datalisst.id.toString(), newFavoriteStatus)
+            favoritesPref.setFavShayari(datalisst.id.toString(), newFavoriteStatus)
 
             // Update the icon
             holder.binding.favBtn.setImageResource(if (newFavoriteStatus){

@@ -63,6 +63,9 @@ dependencies {
     // responsive text
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
 
+   //image cut and set
+    implementation'com.github.dhaval2404:imagepicker:2.1'
+
     //  Room Data Base
     def room_version = "2.5.1"
     implementation("androidx.room:room-runtime:$room_version")

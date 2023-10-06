@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
 import com.example.ishakachinavka.Adapter.FavShayariAdapter
@@ -38,26 +39,11 @@ class FavshayariFragment : Fragment() {
         binding= FragmentFavshayariBinding.inflate(layoutInflater,container,false)
 
          dp = Room.databaseBuilder(requireContext() ,AppDatabase::class.java, "favoriteshayari").allowMainThreadQueries().build()
-
-
         getDataFavShayari()
-
-
-
 
         favShayariShowAdapter= FavShayariAdapter(requireContext(),favShayriList)
         binding.favshayariShowrecycleview.adapter=favShayariShowAdapter
         binding.favshayariShowrecycleview.layoutManager= LinearLayoutManager(requireContext())
-
-
-
-
-
-        binding.backBtn.setOnClickListener {
-
-
-
-        }
 
         return binding.root
     }
@@ -67,9 +53,6 @@ class FavshayariFragment : Fragment() {
 
         favShayriList=dp.userDao().gelAllUsers()
 
-        Log.e("favvvshayarrriiiii", "getDataFavShayari: "+favShayriList )
-
-      // favShayariShowAdapter?.setitem(dp.userDao().gelAllUsers())
 
     }
 

@@ -2,6 +2,7 @@ package com.example.ishakachinavka.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
@@ -12,6 +13,7 @@ class AttitudeShayriActivity : AppCompatActivity() {
     lateinit var binding: ActivityAttitudeShayriBinding
     lateinit var attitudeShayariShowAdapter: ShayariDataShowAdpter
     var attitudeShayriList= mutableListOf<Shayari>()
+
 
 
 

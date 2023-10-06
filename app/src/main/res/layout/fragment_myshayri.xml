@@ -61,6 +61,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_ishakachinauka"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_35sdp"
         android:layout_below="@+id/lenealayout"
@@ -70,6 +71,7 @@
         android:layout_marginRight="@dimen/_10sdp"
         android:background="@drawable/custome_button_myshayarifragment"
         android:drawableRight="@drawable/icon_arrow_right_24"
+
         android:fontFamily="@font/boogaloo"
         android:text="     ishakachi navka mode     "
         android:textAllCaps="false"
