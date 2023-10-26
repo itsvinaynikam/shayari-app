@@ -10,6 +10,7 @@ class SharedPreferencee(var context: Context)
 
      var favoritesPref: SharedPreferences
      var editor: Editor
+     var KEY_STATUS="introStatus"
 
 
 init {
@@ -24,8 +25,21 @@ init {
     }
 
     fun getFavShayari(toString: String, b: Boolean): Boolean
+
     {
         return favoritesPref.getBoolean(toString, b)
+    }
+
+    fun setIntroStatus(status:Boolean){
+        editor.putBoolean(KEY_STATUS,status)
+        editor.apply()
+
+    }
+
+
+    fun getIntroStatus(status:Boolean):Boolean{
+        return favoritesPref.getBoolean(KEY_STATUS, status)
+
     }
 
 

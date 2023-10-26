@@ -21,10 +21,6 @@ class FavoriteShayariActivity : AppCompatActivity() {
         binding= FragmentFavshayariBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
-
         favShayariShowAdapter= ShayariDataShowAdpter(this,favShayriList)
         binding.favshayariShowrecycleview.adapter=favShayariShowAdapter
         binding.favshayariShowrecycleview.layoutManager= LinearLayoutManager(this)

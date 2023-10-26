@@ -49,7 +49,8 @@ class FavShayariAdapter(var context: Context, var favshayariDatalist:MutableList
 
         val favoriteIcon: Int =
             if (isFavorite)
-                com.example.ishakachinavka.R.drawable.fav_heart_icon  else com.example.ishakachinavka.R.drawable.unfav_heart_icon
+                com.example.ishakachinavka.R.drawable.fav_heart_icon
+            else com.example.ishakachinavka.R.drawable.unfav_heart_icon
         holder.binding.favBtn.setImageResource(favoriteIcon)
 
 

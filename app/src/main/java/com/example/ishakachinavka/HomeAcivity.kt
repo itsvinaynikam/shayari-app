@@ -1,9 +1,7 @@
 package com.example.ishakachinavka
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -11,17 +9,16 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.ishakachinavka.Fragment.FavshayariFragment
 import com.example.ishakachinavka.Fragment.HomeFragment
 import com.example.ishakachinavka.Fragment.MyshayriFragment
 import com.example.ishakachinavka.Fragment.ProfileFragment
 import com.example.ishakachinavka.databinding.ActivityMainBinding
+import nl.psdcompany.duonavigationdrawer.views.DuoMenuView
 import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
 import java.lang.String
 import kotlin.Int
@@ -34,6 +31,10 @@ class HomeAcivity : AppCompatActivity() {
     private val GALLERY = 1
     private val CAMERA = 2
    // lateinit var imageView: ImageView
+    lateinit var tvHeaderName:TextView
+
+
+    private val duoMenuView: DuoMenuView? = null
 
 
 
@@ -42,6 +43,75 @@ class HomeAcivity : AppCompatActivity() {
     { super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.container,HomeFragment())
+        transaction.commit()
+
+        setToolbar()
+
+        binding.handlerScreen.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.duo_btn_home -> {
+                    loadFragment(HomeFragment())
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.btn_heart -> {
+                    showPictureDialog()
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.btn_share -> {
+                    loadFragment(FavshayariFragment())
+
+                    return@setNavigationItemSelectedListener true
+                }
+                R.id.rate_us -> {
+                    loadFragment(ProfileFragment())
+
+                    return@setNavigationItemSelectedListener true
+                }
+                else -> {  return@setNavigationItemSelectedListener true}
+            }
+
+        }
+        binding.bottmNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.btn_home -> {
+                    binding.toolbar.visibility=View.VISIBLE
+                    loadFragment(HomeFragment())
+
+                    return@setOnItemSelectedListener true
+                }
+                R.id.btn_myshayari -> {
+                    binding.toolbar.visibility=View.VISIBLE
+                    loadFragment(MyshayriFragment())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.btn_fav -> {
+
+                    binding.toolbar.visibility=View.GONE
+                    loadFragment(FavshayariFragment())
+                    //  startActivity(Intent(this, FavoriteShayariActivity::class.java))
+                    return@setOnItemSelectedListener  true
+                }
+
+                else -> {return@setOnItemSelectedListener false}
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR)
@@ -59,65 +129,8 @@ class HomeAcivity : AppCompatActivity() {
             imageView.setImageResource(R.drawable.intro_image6);
         }*/
 
-        setToolbar()
-        val transaction = supportFragmentManager.beginTransaction()
-                 transaction.add(R.id.container,HomeFragment())
-                 transaction.commit()
-        binding.handlerScreen.setNavigationItemSelectedListener {
-           when (it.itemId) {
-               R.id.duo_btn_home -> {
-                   loadFragment(HomeFragment())
-                   return@setNavigationItemSelectedListener true
-               }
-               R.id.btn_heart -> {
-                   showPictureDialog()
-                   return@setNavigationItemSelectedListener true
-               }
-               R.id.btn_share -> {
-                   loadFragment(FavshayariFragment())
-
-                   return@setNavigationItemSelectedListener true
-               }
-               R.id.rate_us -> {
-                   loadFragment(ProfileFragment())
-
-                   return@setNavigationItemSelectedListener true
-               }
-               else -> {  return@setNavigationItemSelectedListener true}
-           }
-
-       }
 
 
-        binding.bottmNavigation.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.btn_home -> {
-                    binding.toolbar.visibility=View.VISIBLE
-                    loadFragment(HomeFragment())
-
-                    return@setOnItemSelectedListener true
-                }
-                R.id.btn_myshayari -> {
-                    binding.toolbar.visibility=View.VISIBLE
-                    loadFragment(MyshayriFragment())
-                    return@setOnItemSelectedListener true
-                }
-                R.id.btn_fav -> {
-
-                    binding.toolbar.visibility=View.GONE
-                   loadFragment(FavshayariFragment())
-                    //  startActivity(Intent(this, FavoriteShayariActivity::class.java))
-                    return@setOnItemSelectedListener  true
-                }
-                R.id.btn_profile -> {
-                    binding.toolbar.visibility=View.VISIBLE
-                    loadFragment(ProfileFragment())
-                    return@setOnItemSelectedListener true
-                }
-
-                else -> {return@setOnItemSelectedListener false}
-            }
-        }
 
 
     }
@@ -177,9 +190,57 @@ class HomeAcivity : AppCompatActivity() {
     }
     private fun setToolbar() {
         setSupportActionBar(binding.toolbar)
-        val drawerToggle = DuoDrawerToggle(this, binding.drawer, binding.toolbar,com.example.ishakachinavka.R.string.open_nav,com.example.ishakachinavka.R.string.close_nav)
+        val drawerToggle = DuoDrawerToggle(this, binding.drawer, binding.toolbar,
+            R.string.open_nav,
+            R.string.close_nav)
         binding.drawer.setDrawerListener(drawerToggle)
         drawerToggle.syncState()
+
+
+        var subtitle=findViewById<TextView>(R.id.duoMenuView_)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     private  fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()

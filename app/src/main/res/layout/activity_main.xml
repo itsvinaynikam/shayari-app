@@ -9,7 +9,7 @@
 
 
 
-  <nl.psdcompany.duonavigationdrawer.views.DuoMenuView
+    <nl.psdcompany.duonavigationdrawer.views.DuoMenuView
       android:id="@+id/duoMenuView_"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -36,6 +36,10 @@
           app:layout_constraintStart_toStartOf="parent"
 
           android:layout_height="match_parent"/>-->
+
+
+
+
     </RelativeLayout>
 
 

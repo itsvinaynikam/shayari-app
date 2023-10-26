@@ -17,6 +17,7 @@ import com.example.ishakachinavka.Adapter.IntroViewPagerAdapter
 import com.example.ishakachinavka.HomeAcivity
 import com.example.ishakachinavka.Model.IntroScreenItem
 import com.example.ishakachinavka.R
+import com.example.ishakachinavka.SharedPreference.SharedPreferencee
 import com.example.ishakachinavka.databinding.ActivityIntroBinding
 
 
@@ -26,6 +27,8 @@ class IntroActivity : AppCompatActivity() {
     var mList= mutableListOf<IntroScreenItem>()
     lateinit var introViewPagerAdapter: IntroViewPagerAdapter
     var currentIndex = 0
+    lateinit var preferences: SharedPreferencee
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +37,8 @@ class IntroActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(binding.root)
+        preferences = SharedPreferencee(this)
+
         mList.add(IntroScreenItem("इश्काची नाैका...", "Wel Come To इश्काची नाैका  Shayari's wordl..💞",R.drawable.intro_image1))
         mList.add(IntroScreenItem("Best Quotes.. ", "You Will Find Your Favorite Shayari Here...💖", R.drawable.intro_image2))
         mList.add(IntroScreenItem("Shayari's wordl..", "It's Time To Get Lost In The World Of Shayari..😍",R.drawable.intro_image5))
@@ -88,6 +93,7 @@ class IntroActivity : AppCompatActivity() {
         })
 
         binding.btnSkip.setOnClickListener {
+            preferences.setIntroStatus(true)
             startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
         }
     }

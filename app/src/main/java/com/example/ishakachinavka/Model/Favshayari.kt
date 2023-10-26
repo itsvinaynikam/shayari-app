@@ -5,6 +5,4 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "shayaritable ")
 
-data class Favshayari(
-    @PrimaryKey var id:Int,
-                      val text: String)
+data class Favshayari(@PrimaryKey var id:Int, val text: String)

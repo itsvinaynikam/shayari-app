@@ -26,6 +26,8 @@
                 android:paddingRight="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/scroll_button"
+                android:paddingLeft="@dimen/_20sdp"
+                android:drawablePadding="10dp"
                 android:drawableRight="@drawable/icon_arrow_right_24"
                 android:fontFamily="@font/boogaloo"
                 android:text="Love Shayari"
@@ -150,7 +152,6 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:textStyle="italic"
                 android:paddingRight="@dimen/_15sdp"
-
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
                 android:fontFamily="@font/boogaloo"
@@ -167,7 +168,6 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:textStyle="italic"
                 android:paddingRight="@dimen/_15sdp"
-
                 android:background="@drawable/scroll_button"
                 android:drawableRight="@drawable/icon_arrow_right_24"
                 android:fontFamily="@font/boogaloo"
@@ -196,5 +196,6 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 </RelativeLayout>
