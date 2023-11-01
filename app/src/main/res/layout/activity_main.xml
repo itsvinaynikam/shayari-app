@@ -7,8 +7,6 @@
     android:id="@+id/drawer"
     tools:context=".HomeAcivity">
 
-
-
     <nl.psdcompany.duonavigationdrawer.views.DuoMenuView
       android:id="@+id/duoMenuView_"
       android:layout_width="match_parent"
@@ -16,29 +14,93 @@
       android:orientation="vertical"
       android:tag="menu">
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/linerlayout"
+            android:orientation="vertical"
+            android:background="@color/appbackgroundcolour"
+            android:layout_width="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:text="इश्काची नाैका..."
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/displayimage"
+                android:layout_width="match_parent"
+                android:src="@drawable/intro_image6"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10ssp"
+                android:layout_marginRight="@dimen/_10ssp"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="@dimen/_200sdp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_1sdp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:background="@drawable/custome_button_myshayarifragment"
+                    android:layout_height="@dimen/_1sdp"/>
+
+                <TextView
+                    android:id="@+id/subtitile"
+                    android:layout_width="wrap_content"
+                    android:text="Princess"
+                    android:textSize="@dimen/_12ssp"
+                    android:textColor="@color/ligtepurple"
+                    android:fontFamily="@font/amita"
+                    android:textStyle="italic"
+                    android:layout_height="wrap_content"/>
+
+                <!-- <ImageView
+                     android:layout_width="wrap_content"
+                     android:src="@drawable/heart_activeindecator"
+                     android:layout_height="wrap_content"/>
+                 <ImageView
+                     android:layout_width="wrap_content"
+                     android:src="@drawable/heart_activeindecator"
+                     android:layout_height="wrap_content"/>
+                 <ImageView
+                     android:layout_width="wrap_content"
+                     android:src="@drawable/heart_activeindecator"
+                     android:layout_height="wrap_content"/>-->
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:background="@drawable/custome_button_myshayarifragment"
+                    android:layout_height="@dimen/_1sdp"/>
+
+
+            </LinearLayout>
+        </LinearLayout>
       <com.google.android.material.navigation.NavigationView
           android:id="@+id/handler_screen"
           android:layout_width="match_parent"
+          android:layout_below="@+id/linerlayout"
           app:menu="@menu/duonavition_backgroundscreen_menu"
           app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
           app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
           android:background="@color/appbackgroundcolour"
-          app:headerLayout="@layout/nav_heder"
           android:layout_height="match_parent"/>
-
-   <!--   <com.google.android.material.navigation.NavigationView
-          android:id="@+id/drawnavigation_menu"
-          android:layout_width="match_parent"
-          android:layout_below="@+id/handler_screen"
-          android:background="@color/appbackgroundcolour"
-          app:layout_constraintStart_toStartOf="parent"
-
-          android:layout_height="match_parent"/>-->
-
-
-
 
     </RelativeLayout>
 
@@ -77,7 +139,6 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.appcompat.widget.Toolbar
-
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
