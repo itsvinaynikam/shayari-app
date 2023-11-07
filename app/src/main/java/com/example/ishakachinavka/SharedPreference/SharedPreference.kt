@@ -3,7 +3,7 @@ package com.example.ishakachinavka.SharedPreference
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
-import android.net.Uri
+import com.example.ishakachinavka.HomeAcivity
 
 
 class SharedPreferencee(var context: Context)
@@ -15,8 +15,6 @@ class SharedPreferencee(var context: Context)
      var KEY_STATUS="introStatus"
      var KEY_PROFILEIMAGE="profileimage"
 
-    private val PREF_NAME = "MyPrefs"
-    private val IMAGE_URI_KEY = "imageUri"
 
 
 init {
@@ -40,9 +38,8 @@ init {
         return favoritesPref.getBoolean(KEY_STATUS, status)
 
     }
-
-    fun saveImagePath(context: Context, imagePath: Uri?) {
-        editor.putString(KEY_PROFILEIMAGE, imagePath.toString())
+    fun saveImagePath(homeAcivity: HomeAcivity, bitmap: String) {
+        editor.putString(KEY_PROFILEIMAGE, bitmap)
         editor.apply()
     }
 

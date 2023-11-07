@@ -2,6 +2,7 @@ package com.example.ishakachinavka
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -9,8 +10,10 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -24,11 +27,14 @@ import com.example.ishakachinavka.Fragment.ProfileFragment
 import com.example.ishakachinavka.SharedPreference.SharedPreferencee
 import com.example.ishakachinavka.databinding.ActivityMainBinding
 import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
+import java.io.ByteArrayOutputStream
+
+
+
 
 
 class HomeAcivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
-
     private val GALLERY = 1
     private val CAMERA = 2
     lateinit var preferencess: SharedPreferencee
@@ -96,62 +102,99 @@ class HomeAcivity : AppCompatActivity() {
             } }
     }
 
-    private fun askPermission() {
+    private fun askGallaryPermission() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissionss();
+            requestGallaryPermissionss();
+        } else if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE))
+        { Toast.makeText(this, "permission alert", Toast.LENGTH_SHORT).show()
         } else {
-
+            Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun requestPermissionss() {
+    private fun requestCameraPermissionss()
+    {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
+        }else
+        {
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA)
+        }
+
+    }
+    private fun requestGallaryPermissionss() {
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED)
-            {
-
-                Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
-
-            }else
-            {
-                requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), GALLERY)
-
-            }
-
-    }
-
-    private fun setProfileImage() {
-
-        val imagePath: String? = preferencess.getImagePath(this)
-
-        Log.e("imagePath", "setProfileImage: "+imagePath )
-
-        if (imagePath != null) {
-            val bitmap = BitmapFactory.decodeFile(imagePath)
-            binding.displayimage.setImageBitmap(bitmap)
+            { Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
+        }else {
+            requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), GALLERY)
         }
 
+    }
+    private fun setProfileImage() {
+        val imagePath: String? = preferencess.getImagePath(this)
+        if (imagePath != null) {
+            val b: ByteArray = Base64.decode(imagePath, Base64.DEFAULT)
+            val bitmap = BitmapFactory.decodeByteArray(b, 0, b.size)
+            binding.displayimage.setImageBitmap(bitmap)
 
-
-
-
-
+        }
     }
 
     private fun showPictureDialog() {
         val pictureDialog = AlertDialog.Builder(this)
         pictureDialog.setTitle("Add Photo ")
-        val pictureDialogItems = arrayOf("Select photo from gallery", " Select photo from camera")
+        val pictureDialogItems = arrayOf("Select photo from gallery", " Select photo from camera","Edite Subtitle")
         pictureDialog.setItems(pictureDialogItems
         ) { dialog, which ->
             when (which) {
-                0 -> askPermission()
-                    //choosePhotoFromGallary()
-
-                1 -> takePhotoFromCamera()
+                0 -> askGallaryPermission()
+                1 -> askCameraPermission()
+                2->showEditeSubtitleDailog()
             }
         }
         pictureDialog.show()
     }
+
+    private fun showEditeSubtitleDailog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Name")
+
+        val customLayout: View = layoutInflater.inflate(R.layout.custom_layout_subtitle, null)
+        builder.setView(customLayout)
+
+        builder.setPositiveButton("OK") { dialog: DialogInterface?, which: Int ->
+            // send data from the AlertDialog to the Activity
+            val editText = customLayout.findViewById<EditText>(R.id.editText)
+            sendDialogDataToActivity(editText.text.toString())
+        }
+        // create and show the alert dialog
+        val dialog = builder.create()
+        dialog.show()
+
+    }
+
+    private fun sendDialogDataToActivity(toString: String) {
+
+
+        binding.subtitile.setText(toString)
+
+
+        Log.e("tubttttile", "sendDialogDataToActivity: "+toString )
+
+    }
+
+    private fun askCameraPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestCameraPermissionss();
+        }
+        else{
+            Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
+
+        }
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -163,21 +206,20 @@ class HomeAcivity : AppCompatActivity() {
                     val contentURI = data!!.data
                     var displayImage=findViewById<ImageView>(R.id.displayimage)
                     displayImage.setImageURI(contentURI)
+                    val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
 
-                    //val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
+                    val baos = ByteArrayOutputStream()
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                    val b = baos.toByteArray()
+                    val encodedImage: String = Base64.encodeToString(b, Base64.DEFAULT)
 
-
-                    var imagePath=preferencess.saveImagePath(this,contentURI)
-
-
-
+                    preferencess.saveImagePath(this,encodedImage)
                     displayImage.invalidate()
 
                 }
 
             } else if (requestCode == CAMERA)
-            {
-                val thumbnail = data!!.extras!!.get("data") as Bitmap
+            { val thumbnail = data!!.extras!!.get("data") as Bitmap
                 var displayImage=findViewById<ImageView>(R.id.displayimage)
                 displayImage!!.setImageBitmap(thumbnail)
             }
@@ -187,6 +229,8 @@ class HomeAcivity : AppCompatActivity() {
 
     }
 
+
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -194,21 +238,20 @@ class HomeAcivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 if (requestCode==GALLERY)
-{
+{ if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED))
+    { Toast.makeText(this, "user allowed permission", Toast.LENGTH_SHORT).show()
+        choosePhotoFromGallary()
+    }
+}
+else if (requestCode==CAMERA) {
     if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED))
     {
-
         Toast.makeText(this, "user allowed permission", Toast.LENGTH_SHORT).show()
-
+        takePhotoFromCamera()
     }
-    else {
-        Toast.makeText(this, "user denine permission", Toast.LENGTH_SHORT).show()
-
-
-    }
-
-}else{
-
+}
+else{
+    Toast.makeText(this, "user denine permission", Toast.LENGTH_SHORT).show()
 }
 
     }
@@ -219,7 +262,6 @@ if (requestCode==GALLERY)
             R.string.close_nav)
         binding.drawer.setDrawerListener(drawerToggle)
         drawerToggle.syncState()
-
     }
     private  fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
