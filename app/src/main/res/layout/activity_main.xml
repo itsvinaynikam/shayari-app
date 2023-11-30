@@ -37,7 +37,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/displayimage"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/_250sdp"
                 android:src="@drawable/intro_image6"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_10ssp"

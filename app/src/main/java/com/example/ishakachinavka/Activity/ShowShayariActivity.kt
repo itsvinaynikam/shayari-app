@@ -1,24 +1,72 @@
 package com.example.ishakachinavka.Activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
-import com.example.ishakachinavka.Model.IntroScreenItem
 import com.example.ishakachinavka.Model.Shayari
-import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivityShowShayariBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+
 
 class ShowShayariActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityShowShayariBinding
     lateinit var shayariShowAdapter:ShayariDataShowAdpter
      var loveShayriList= mutableListOf<Shayari>()
+    lateinit var mAdView : AdView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityShowShayariBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+       binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+                // Code to be executed when an impression is recorded
+                // for an ad.
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@ShowShayariActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+        }
+
+
+
 
         loveShayriList.add(
             Shayari(1,"💖याद ऐसे करो की हद्द न हो,\n" +

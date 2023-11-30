@@ -11,13 +11,14 @@ class SharedPreferencee(var context: Context)
 
      var favoritesPref: SharedPreferences
      var editor: Editor
-
      var KEY_STATUS="introStatus"
      var KEY_PROFILEIMAGE="profileimage"
+     var SUB_TITLE="subtitile"
 
 
 
-init {
+init
+{
     favoritesPref = context.getSharedPreferences("FavoritesPref", Context.MODE_PRIVATE);
     editor = favoritesPref.edit()
 }
@@ -30,15 +31,15 @@ init {
     {
         return favoritesPref.getBoolean(toString, b)
     }
-    fun setIntroStatus(status:Boolean){
+    fun setIntroStatus(status:Boolean)
+    {
         editor.putBoolean(KEY_STATUS,status)
         editor.apply()
     }
-    fun getIntroStatus(status:Boolean):Boolean{
-        return favoritesPref.getBoolean(KEY_STATUS, status)
-
-    }
-    fun saveImagePath(homeAcivity: HomeAcivity, bitmap: String) {
+    fun getIntroStatus(status:Boolean):Boolean
+    { return favoritesPref.getBoolean(KEY_STATUS, status)}
+    fun saveImagePath(homeAcivity: HomeAcivity, bitmap: String)
+    {
         editor.putString(KEY_PROFILEIMAGE, bitmap)
         editor.apply()
     }
@@ -48,20 +49,13 @@ init {
     }
 
 
+    fun setSubTitle(subtitle: String){
+        editor.putString(SUB_TITLE,subtitle)
+        editor.apply()
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    fun getSubtitle(defaulSubtitle: String): String?
+    { return favoritesPref.getString(SUB_TITLE,defaulSubtitle) }
 
 }
 

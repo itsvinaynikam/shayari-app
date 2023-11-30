@@ -76,6 +76,7 @@ class IntroActivity : AppCompatActivity() {
                     })
                         binding.btnStarNow.startAnimation(fadeIn);
                     binding.btnStarNow.setOnClickListener {
+                        preferences.setIntroStatus(true)
                         startActivity(Intent(this@IntroActivity,HomeAcivity::class.java))
                     }
                 }
@@ -104,17 +105,11 @@ class IntroActivity : AppCompatActivity() {
 
         for (i in indicators.indices)
         {
-            Log.e("indicators", "updateIndicator: "+i )
-            Log.e("indexxx", "updateIndicator: "+index )
-
             indicators[i]= ImageView(this@IntroActivity)
             if (i==index)
-            {
-                indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heart_activeindecator))
-
+            { indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heart_activeindecator))
             }else
-            {
-                indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heartshape_inactiveindecator))
+            { indicators[i]?.setImageDrawable(ContextCompat.getDrawable(this@IntroActivity,R.drawable.heartshape_inactiveindecator))
             }
             var params=LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
             params.setMargins(20,0,0,0)

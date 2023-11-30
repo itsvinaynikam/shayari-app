@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/duo_btn_home" android:title="Home" android:icon="@drawable/icon_home_24" />
-    <item android:id="@+id/btn_heart" android:title="Love Mode" android:icon="@drawable/icons_heartlovet24" />
+    <item android:id="@+id/btn_edite" android:title="Edite Mode" android:icon="@drawable/icon_edit_24" />
     <item android:id="@+id/btn_share" android:title="Share with Friends" android:icon="@drawable/icon_share_24" />
     <item android:id="@+id/rate_us" android:title="Rate us" android:icon="@drawable/icon_rate_star" />
 
