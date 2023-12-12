@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="16dp"
+        android:text="Love Calculator 😍"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="👋 Enter your name"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/field_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title1"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/my_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/field_bg"
+                android:inputType="textCapWords"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textColor="@color/textPrimary" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/field_layout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="❤ Enter your Partner's name"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp" />
+
+        <RelativeLayout
+            android:id="@+id/field_layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title2"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp">
+
+            <EditText
+                android:id="@+id/partner_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/field_bg"
+                android:inputType="textCapWords"
+                android:maxLength="25"
+                android:maxLines="1"
+                android:padding="12dp"
+                android:textColor="@color/textPrimary" />
+
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/checkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/field_layout_2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/field_bg"
+            android:backgroundTint="@color/colorAccent"
+            android:paddingHorizontal="30dp"
+            android:text="Check 👈"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+
+
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/loaderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header"
+        android:visibility="gone"
+        android:clickable="true">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/textSecondary"
+            android:alpha="0.8"/>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/colorAccent"/>
+    </FrameLayout>
+
+
+</RelativeLayout>

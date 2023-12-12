@@ -2,11 +2,16 @@ package com.example.ishakachinavka.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivityMotivitionBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class MotivitionActivity : AppCompatActivity() {
 
@@ -19,6 +24,40 @@ class MotivitionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
                 binding= ActivityMotivitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+
+            }
+
+            override fun onAdClosed() {
+
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@MotivitionActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+            }
+        }
 
         motivationalShayriList.add(
             Shayari(282,"🥺दर्द, गम, डर जो भी है बस तेरे अंदर हैं,\n" +

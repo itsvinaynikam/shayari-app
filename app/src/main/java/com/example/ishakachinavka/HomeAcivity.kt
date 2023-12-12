@@ -20,6 +20,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.ishakachinavka.Activity.LovecalculateAcvity
+import com.example.ishakachinavka.Class.Constance
 import com.example.ishakachinavka.Fragment.FavshayariFragment
 import com.example.ishakachinavka.Fragment.HomeFragment
 import com.example.ishakachinavka.Fragment.MyshayriFragment
@@ -29,9 +31,6 @@ import com.example.ishakachinavka.databinding.ActivityMainBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
 import java.io.ByteArrayOutputStream
-
-
-
 
 
 class HomeAcivity : AppCompatActivity() {
@@ -53,13 +52,13 @@ class HomeAcivity : AppCompatActivity() {
         setToolbar()
         setProfileImage()
 
+        Constance.loadRewardedAd(this)
+
         binding.handlerScreen.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.btn_edite -> {
                     showPictureDialog()
-
-
-                            return@setNavigationItemSelectedListener true
+                    return@setNavigationItemSelectedListener true
                 }
                 R.id.btn_share -> {
                     loadFragment(FavshayariFragment())
@@ -92,49 +91,40 @@ class HomeAcivity : AppCompatActivity() {
                     //  startActivity(Intent(this, FavoriteShayariActivity::class.java))
                     return@setOnItemSelectedListener  true
                 }
+            R.id.btn_lovecalculator->
+            {
+                binding.toolbar.visibility=View.GONE
+                loadFragment(LovecalculateFragment())
+                return@setOnItemSelectedListener true
+            }
 
                 else -> {return@setOnItemSelectedListener false}
             } }
     }
 
     private fun askGallaryPermission() {
-
-        Log.e("askGallaryPermission", "askGallaryPermission:     1" )
-
-      /*  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestGallaryPermissionss();
-
-        } else if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE))
-        { Toast.makeText(this, "permission alert", Toast.LENGTH_SHORT).show()
-        }
-        else {
-            Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
-            Log.e("askGallaryPermission", "askGallaryPermission:     3" )
-
-        }*/
-
-        ImagePicker.with(this)
+       /* ImagePicker.with(this@HomeAcivity)
             .galleryOnly()
-            .crop()	    			//Crop image(Optional), Check Customization for more option
-            .compress(1024)			//Final image size will be less than 1 MB(Optional)
-            .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-            .start(GALLERY)
+            .crop()
+            .compress(1024)
+            .maxResultSize(1080, 1080)
+            .start(GALLERY)*/
 
-
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        requestGallaryPermissionss();
+      } else if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE))
+      { Toast.makeText(this, "permission alert", Toast.LENGTH_SHORT).show() }
+else { choosePhotoFromGallary() }
     }
 
     private fun requestCameraPermissionss()
     {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_GRANTED) {
-            Log.e("askCameraPermission", "askCameraPermission:      4", )
             takePhotoFromCamera()
-
-
             Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
         }else
         {
-            Log.e("askCameraPermission", "askCameraPermission:      5", )
 
             requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA)
         }
@@ -142,11 +132,10 @@ class HomeAcivity : AppCompatActivity() {
     }
     private fun requestGallaryPermissionss() {
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)==PackageManager.PERMISSION_GRANTED)
-            { Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
-                Log.e("askGallaryPermission", "askGallaryPermission:     4" )
+            {
+            Toast.makeText(this, "permition olready granted", Toast.LENGTH_SHORT).show()
 
             }else {
-            Log.e("askGallaryPermission", "askGallaryPermission:     5" )
 
             requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), GALLERY)
         }
@@ -172,7 +161,47 @@ class HomeAcivity : AppCompatActivity() {
         pictureDialog.setItems(pictureDialogItems
         ) { dialog, which ->
             when (which) {
-                0 -> askGallaryPermission()
+                0 -> {
+
+                  /*  if (rewardedAd != null) {
+                        val activityContext: Activity = this
+                        rewardedAd!!.show(activityContext,
+                            OnUserEarnedRewardListener { rewardItem ->
+
+                            })
+                        rewardedAd?.fullScreenContentCallback = object: FullScreenContentCallback() {
+                            override fun onAdClicked() {
+
+                            }
+                            override fun onAdDismissedFullScreenContent() {
+                                askGallaryPermission()
+                                Constance.loadRewardedAd(this@HomeAcivity)
+
+
+                            }
+                            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
+                                rewardedAd = null
+                               // askGallaryPermission()
+                                Constance.loadRewardedAd(this@HomeAcivity)
+                                Toast.makeText(this@HomeAcivity, "faileddd ads ", Toast.LENGTH_SHORT).show()
+
+                            }
+                            override fun onAdImpression() {
+
+                            }
+
+                            override fun onAdShowedFullScreenContent() {
+                            }
+                        }
+                    }
+                    else {
+                        Toast.makeText(this@HomeAcivity, "null ads ", Toast.LENGTH_SHORT).show()
+                        Constance.loadRewardedAd(this)
+
+                        //  askGallaryPermission()
+                    }*/
+                    askGallaryPermission()
+                }
                 1 -> askCameraPermission()
                 2->showEditeSubtitleDailog()
             }
@@ -192,10 +221,6 @@ class HomeAcivity : AppCompatActivity() {
             editText.setText(subtitle)
        // }
 
-
-
-        Log.e("editText", "showEditeSubtitleDailog: "+editText )
-
         builder.setView(customLayout)
 
         builder.setPositiveButton("OK") { dialog: DialogInterface?, which: Int ->
@@ -212,10 +237,13 @@ class HomeAcivity : AppCompatActivity() {
     }
 
     private fun askCameraPermission() {
-
-        Log.e("askCameraPermission", "askCameraPermission:      1", )
-
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        ImagePicker.with(this)
+            .cameraOnly()
+            .crop()
+            .compress(1024)
+            .maxResultSize(1080, 1080)
+            .start(CAMERA)
+    /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestCameraPermissionss();
         } else if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA))
         { Toast.makeText(this, "permission alert", Toast.LENGTH_SHORT).show()
@@ -226,15 +254,6 @@ class HomeAcivity : AppCompatActivity() {
             Log.e("askCameraPermission", "askCameraPermission:      3", )
 
         }*/
-        ImagePicker.with(this)
-            .cameraOnly()
-            .crop()	    			//Crop image(Optional), Check Customization for more option
-            .compress(1024)			//Final image size will be less than 1 MB(Optional)
-            .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-            .start(CAMERA)
-
-
-
 
     }
 
@@ -243,21 +262,18 @@ class HomeAcivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode === RESULT_OK) {
-            if (requestCode == GALLERY) {
+            if (requestCode == GALLERY)
+            {
                 if (data != null)
                 {
-                    Log.e("askGallaryPermission", "askGallaryPermission:     8" )
-
                     val contentURI = data!!.data
                     var displayImage=findViewById<ImageView>(R.id.displayimage)
                     displayImage.setImageURI(contentURI)
                     val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
-
                     val baos = ByteArrayOutputStream()
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
                     val b = baos.toByteArray()
                     val encodedImage: String = Base64.encodeToString(b, Base64.DEFAULT)
-
                     preferencess.saveImagePath(this,encodedImage)
                     displayImage.invalidate()
 
@@ -266,96 +282,63 @@ class HomeAcivity : AppCompatActivity() {
             }
             else if (requestCode == CAMERA)
             {
-                Log.e("askCameraPermission", "askCameraPermission:      8", )
-/*
-                val camarabitmap = data!!.extras!!.get("data") as Bitmap
-                var displayImage=findViewById<ImageView>(R.id.displayimage)
-                displayImage!!.setImageBitmap(camarabitmap)
-
-                val baos = ByteArrayOutputStream()
-                camarabitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-                val b = baos.toByteArray()
-                val encodedCameraImage: String = Base64.encodeToString(b, Base64.DEFAULT)
-
-                preferencess.saveImagePath(this,encodedCameraImage)*/
-
-
-
                 val contentURI = data!!.data
                 var displayImage=findViewById<ImageView>(R.id.displayimage)
                 displayImage.setImageURI(contentURI)
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
-
                 val baos = ByteArrayOutputStream()
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
                 val b = baos.toByteArray()
                 val encodedImage: String = Base64.encodeToString(b, Base64.DEFAULT)
-
                 preferencess.saveImagePath(this,encodedImage)
                 displayImage.invalidate()
-
             }
 
 
         }
 
     }
-  /*  override fun onRequestPermissionsResult(
+   override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-if (requestCode==GALLERY)
-{
-    Log.e("askGallaryPermission", "askGallaryPermission:     6" )
-
+  if (requestCode==GALLERY)
+  {
     if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED))
-    { Toast.makeText(this, "user allowed permission", Toast.LENGTH_SHORT).show()
-        Log.e("askGallaryPermission", "askGallaryPermission:     6.1" )
-
+    {   Toast.makeText(this, "user allowed permission", Toast.LENGTH_SHORT).show()
         choosePhotoFromGallary()
     }
-}
-else if (requestCode==CAMERA) {
-    Log.e("askCameraPermission", "askCameraPermission:      6", )
-
-    if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED))
-    {
-        Log.e("askCameraPermission", "askCameraPermission:      6.1", )
-
-        Toast.makeText(this, "user allowed permission", Toast.LENGTH_SHORT).show()
-        takePhotoFromCamera()
-    }
-}
+  }
 else{
     Toast.makeText(this, "user denine permission", Toast.LENGTH_SHORT).show()
-}
-
-    }*/
+   }
+   }
     private fun setToolbar()
-    { setSupportActionBar(binding.toolbar)
+    {
+        setSupportActionBar(binding.toolbar)
         val drawerToggle = DuoDrawerToggle(this, binding.drawer, binding.toolbar, R.string.open_nav, R.string.close_nav)
         binding.drawer.setDrawerListener(drawerToggle)
         drawerToggle.syncState()
     }
-    private  fun loadFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
+    private  fun loadFragment(fragment: Fragment)
+    { val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container,fragment)
         transaction.commit()
     }
     private fun takePhotoFromCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        Log.e("askCameraPermission", "askCameraPermission:      7", )
-
         startActivityForResult(intent, CAMERA)
     }
-    private fun choosePhotoFromGallary() {
-        Log.e("askGallaryPermission", "askGallaryPermission:     7" )
-
-        val galleryIntent = Intent(Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(galleryIntent, GALLERY)
+    private fun choosePhotoFromGallary()
+    {
+        ImagePicker.with(this@HomeAcivity)
+            .galleryOnly()
+            .crop()
+            .compress(1024)
+            .maxResultSize(1080, 1080)
+            .start(GALLERY)
     }
 
 

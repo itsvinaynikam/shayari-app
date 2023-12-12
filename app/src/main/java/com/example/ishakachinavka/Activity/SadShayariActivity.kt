@@ -2,11 +2,16 @@ package com.example.ishakachinavka.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivitySadShayariBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class SadShayariActivity : AppCompatActivity() {
 
@@ -19,6 +24,41 @@ class SadShayariActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivitySadShayariBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+
+            }
+
+            override fun onAdClosed() {
+
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@SadShayariActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+            }
+        }
 
         sadShayriList.add(Shayari(162,"👰‍♀️अब तो वही सबसे ज्यादा रुलाने लगे हैं हमें, जो कभी कहते थे रोते तुम हो और तकलीफ हमें होती है.🥺"))
         sadShayriList.add(Shayari(163,"🥺नाराज हुई बैठी है शायद वो हम से , लोग जिसे क़िस्मत कहते है..🖤"))

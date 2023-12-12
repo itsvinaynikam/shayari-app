@@ -3,11 +3,16 @@ package com.example.ishakachinavka.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivityAttitudeShayriBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class AttitudeShayriActivity : AppCompatActivity() {
     lateinit var binding: ActivityAttitudeShayriBinding
@@ -21,6 +26,41 @@ class AttitudeShayriActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityAttitudeShayriBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+
+            }
+
+            override fun onAdClosed() {
+
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@AttitudeShayriActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+            }
+        }
 
         attitudeShayriList.add(Shayari(81,"😎गुरूर है हमे अपने किरदार पर अगर कोई तुमसा  नहीं तो कोही हमसा भी कहा..🤙 "))
         attitudeShayriList.add(Shayari(82,"😆भाड़ में जाये लोग ओर,लोगो की बातें,हम वैसे ही जियेंगे,जैसे हम है चाहते..😎"))

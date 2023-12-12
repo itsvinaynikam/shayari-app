@@ -6,5 +6,9 @@
     <color name="ligtepurple">#BC5FEB</color>
     <color name="darkepurple">#620C71</color>
     <color name="red">#FD0000</color>
+    <color name="colorAccent">#FF006F</color>
+    <color name="textPrimary">#FFFFFF</color>
+    <color name="textSecondary">#505860</color>
+
 
 </resources>

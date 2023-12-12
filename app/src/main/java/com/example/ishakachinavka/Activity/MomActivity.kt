@@ -2,11 +2,16 @@ package com.example.ishakachinavka.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivityMomBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class MomActivity : AppCompatActivity() {
     lateinit var binding: ActivityMomBinding
@@ -18,6 +23,40 @@ class MomActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityMomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+
+            }
+
+            override fun onAdClosed() {
+
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@MomActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+            }
+        }
 
         momShayriList.add(Shayari(322,"🖤हजारों गम हो फिर भी मैं खुशी से फूल जाता हूं,जब हस्ती है मेरी मां मैं हर गम भूल जाता हूं..👩‍👦"))
         momShayriList.add(Shayari(323,"हालातों के आगे जब साथ ना जुदा होती है,पहचान लेती है ख़ामोशी में हर दर्द वह सिर्फ मां होती है..💖"))

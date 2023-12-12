@@ -2,11 +2,16 @@ package com.example.ishakachinavka.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivityRomaticshayriBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class RomaticshayriActivity : AppCompatActivity() {
 
@@ -19,6 +24,42 @@ class RomaticshayriActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityRomaticshayriBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+
+            }
+
+            override fun onAdClosed() {
+
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@RomaticshayriActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+            }
+        }
+
 
         romticShayriList.add(Shayari(42,"💞 मैं दिनभर ना जाने कितनों चेहरों से रूबरू होता हूँ पर पता नहीं रात को ख्याल सिर्फ तुम्हारा ही क्यों आता है..👨‍👧"))
         romticShayriList.add(Shayari(43,"👩‍❤️‍‍👨प्यार वो है, जिसमे किसी के ‘मिलने’ की {_उम्मीद_} भी न हो..\n" +

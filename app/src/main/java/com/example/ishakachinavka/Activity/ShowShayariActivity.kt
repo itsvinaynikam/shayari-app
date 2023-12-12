@@ -19,7 +19,6 @@ class ShowShayariActivity : AppCompatActivity() {
     lateinit var binding: ActivityShowShayariBinding
     lateinit var shayariShowAdapter:ShayariDataShowAdpter
      var loveShayriList= mutableListOf<Shayari>()
-    lateinit var mAdView : AdView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,14 +32,13 @@ class ShowShayariActivity : AppCompatActivity() {
        binding.adView.loadAd(adRequest)
 
         binding.adView.adListener = object: AdListener() {
-
             override fun onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
+                super.onAdClicked()
+
             }
 
             override fun onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
+
             }
 
             override fun onAdFailedToLoad(adError : LoadAdError) {
@@ -50,8 +48,7 @@ class ShowShayariActivity : AppCompatActivity() {
             }
 
             override fun onAdImpression() {
-                // Code to be executed when an impression is recorded
-                // for an ad.
+
             }
 
             override fun onAdLoaded() {
@@ -60,8 +57,7 @@ class ShowShayariActivity : AppCompatActivity() {
             }
 
             override fun onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
+                super.onAdOpened()
             }
         }
 

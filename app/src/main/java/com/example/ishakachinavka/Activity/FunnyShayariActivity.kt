@@ -2,11 +2,16 @@ package com.example.ishakachinavka.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ishakachinavka.Adapter.ShayariDataShowAdpter
 import com.example.ishakachinavka.Model.Shayari
 import com.example.ishakachinavka.R
 import com.example.ishakachinavka.databinding.ActivityFunnyShayariBinding
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class FunnyShayariActivity : AppCompatActivity() {
 
@@ -20,6 +25,40 @@ class FunnyShayariActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityFunnyShayariBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        MobileAds.initialize(this) { }
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
+
+        binding.adView.adListener = object: AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+
+            }
+
+            override fun onAdClosed() {
+
+            }
+
+            override fun onAdFailedToLoad(adError : LoadAdError) {
+                super.onAdFailedToLoad(adError)
+                binding.adView.loadAd(adRequest)
+
+            }
+
+            override fun onAdImpression() {
+
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Toast.makeText(this@FunnyShayariActivity, "ads loaded", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+            }
+        }
 
         funnyShayriList.add(Shayari(242,"😆ये कलयुग हैं साहब,यहाँ भीड़ को रश कहते हैं,और जो भीड़ में पसंद आ जाए,उसे क्रश कहते हैं…🥰"))
         funnyShayriList.add(Shayari(243,"अर्ज किया हैं वो डीपी दिखाकर गुमराह करेगी,\n" +
